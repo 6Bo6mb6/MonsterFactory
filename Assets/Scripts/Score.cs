@@ -3,20 +3,20 @@ using UnityEngine.Events;
 
 public class Score : MonoBehaviour
 {
-    [SerializeField] private int _money;
+    [SerializeField] private int _score;
     [HideInInspector] public UnityEvent<int> ChangeMoney;
 
-    public void Add(int money) 
+    public void Add(int score) 
     {
-        if(money > 0)
-        _money += money;
-        ChangeMoney?.Invoke(_money);
+        if(score > 0)
+            _score += score;
+        ChangeMoney?.Invoke(_score);
     }
     
     public void Subtract(int money)
     {
         if (money > 0)
-            _money -= money;
-        ChangeMoney?.Invoke(_money);
+            _score -= money;
+        ChangeMoney?.Invoke(_score);
     }
 }

@@ -11,14 +11,14 @@ public class PoolsKeeper : MonoBehaviour
     public BodyCustomizer GetFreeEnemy(BodyCustomizer prefabEnemy, Transform spawnPositon) 
     {
         if (_pool == null) 
-            ÑreateANewPool(prefabEnemy);
+            CreateANewPool(prefabEnemy);
 
         BodyCustomizer enemy = _pool.GetFreeElement();
         enemy.transform.position = new Vector3(spawnPositon.position.x, spawnPositon.position.y, spawnPositon.position.z);
         return enemy;
     }
 
-    private void ÑreateANewPool(BodyCustomizer prefabEnemy) 
+    private void CreateANewPool(BodyCustomizer prefabEnemy) 
     {
             _pool = new Pool<BodyCustomizer>(prefabEnemy, _poolCount, transform);
             _pool.AutoExpand = _autoExpand;

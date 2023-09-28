@@ -10,7 +10,7 @@ public class UIHealth : MonoBehaviour
     public void Start()
     {
         _healthBar = GetComponent<Slider>();
-        _hp.ÑhangeHealth.AddListener(UpdateUiHealth);
+        _hp.ChangeHealth.AddListener(UpdateUiHealth);
     }
 
     private void UpdateUiHealth(float health)

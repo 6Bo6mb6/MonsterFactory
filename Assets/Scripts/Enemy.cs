@@ -34,9 +34,7 @@ public class Enemy : Person
 
     private void Update()
     {
-        if (Mathf.Round(GetRigidbodyPosition().x) == _generator.CurrentPoint.x
-            &&
-            Mathf.Round(GetRigidbodyPosition().y) == _generator.CurrentPoint.y)
+        if (ReachedThePoint())
         {
             SetNewDirection(_generator.GenerateNewDirection(GetRigidbodyPosition()));
         }
@@ -74,4 +72,10 @@ public class Enemy : Person
         }
     }
 
+    private bool ReachedThePoint() 
+    {
+        return Mathf.Round(GetRigidbodyPosition().x) == _generator.CurrentPoint.x
+                &&
+                Mathf.Round(GetRigidbodyPosition().y) == _generator.CurrentPoint.y;
+    }
 }

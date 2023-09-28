@@ -6,16 +6,16 @@ public class UIReputation : MonoBehaviour
     [SerializeField] private Health _reputation;
 
     private Slider _bar;
+    private const float _maxReputationPercent = 100f; 
 
-    public void Start()
+    private  void Start()
     {
         _bar = GetComponent<Slider>();
-        _reputation.ÑhangeHealth.AddListener(UpdateUiHealth);
+        _reputation.ChangeHealth.AddListener(UpdateUiHealth);
     }
 
     private void UpdateUiHealth(float health)
     {
-
-        _bar.value = 100f - health;
+        _bar.value = _maxReputationPercent - health;
     }
 }

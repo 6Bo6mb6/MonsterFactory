@@ -4,10 +4,10 @@ using System;
 
 public class GameOver : MonoBehaviour
 {
-    [HideInInspector] public UnityEvent ÑhangeUI;
+    [HideInInspector] public UnityEvent ChangeUI;
 
     public void Lose()
     {
-        ÑhangeUI?.Invoke();
+        ChangeUI?.Invoke();
     }
 }

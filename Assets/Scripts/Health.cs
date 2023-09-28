@@ -6,29 +6,34 @@ public class Health : MonoBehaviour
     [SerializeField] private float _currentHealth, _maxHealth;
 
     [HideInInspector] public UnityEvent PersonDie;
-    [HideInInspector] public UnityEvent<float> ÑhangeHealth;
-    
+    [HideInInspector] public UnityEvent<float> ChangeHealth;
+
+    private void Awake()
+    {
+        _currentHealth = Mathf.Clamp(_currentHealth, 1f, _maxHealth);
+    }
+
     public void Healing(float Percent)
     {
-        if (Percent > 0 && Percent <= 100)
+        if (Percent > 0f && Percent <= 100f)
         {
             _currentHealth = Mathf.Clamp(_currentHealth + _maxHealth * Percent / 100f, 0, 100);
         }
 
-        ÑhangeHealth?.Invoke(GetCurrentHealthPercent());
+        ChangeHealth?.Invoke(GetCurrentHealthPercent());
     }
 
     public void Damage(float Percent)
     {
-        if (Percent > 0 && Percent <= 100)
+        if (Percent > 0f && Percent <= 100f)
         {
-            _currentHealth = Mathf.Clamp(_currentHealth - _maxHealth * Percent / 100f, 0, 100);
+            _currentHealth = Mathf.Clamp(_currentHealth - _maxHealth * Percent / 100f, 0f, 100f);
             Debug.Log(_currentHealth);
         }
 
-        ÑhangeHealth?.Invoke(GetCurrentHealthPercent());
+        ChangeHealth?.Invoke(GetCurrentHealthPercent());
 
-        if (_currentHealth == 0)
+        if (_currentHealth == 0f)
         {
             PersonDie?.Invoke();
         }
@@ -37,14 +42,7 @@ public class Health : MonoBehaviour
 
     private float GetCurrentHealthPercent() 
     {   
-        float Percent;
-        Percent = _currentHealth * 100 / _maxHealth;
-        return Percent;
-    }
-
-    private void Awake()
-    {
-        _currentHealth = Mathf.Clamp(_currentHealth , 1, _maxHealth);
+        return _currentHealth * 100f / _maxHealth;
     }
 
 }

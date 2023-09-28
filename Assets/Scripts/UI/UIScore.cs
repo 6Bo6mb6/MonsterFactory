@@ -1,13 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Text))]
 public class UIScore : MonoBehaviour
 {
     [SerializeField] private Score _score;
 
     private Text _text;
 
-    public void Start()
+    private void Start()
     {
         _text = GetComponent<Text>();
         _score.ChangeMoney.AddListener(UpdateUi);

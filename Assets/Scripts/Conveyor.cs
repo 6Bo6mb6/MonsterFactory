@@ -9,7 +9,7 @@ public class Conveyor : MonoBehaviour
     private Rigidbody2D _rb;
    
 
-    public void Start()
+    private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
     }
@@ -26,6 +26,7 @@ public class Conveyor : MonoBehaviour
             TeleportToPoint();
         }
     }
+
     private void TeleportToPoint()
     {
         _rb.position = new Vector2(_point.position.x - _offset, _rb.position.y);

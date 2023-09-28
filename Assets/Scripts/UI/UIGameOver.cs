@@ -7,7 +7,7 @@ public class UIGameOver : MonoBehaviour
 
     public void Start()
     {
-        _gameOver.ÑhangeUI.AddListener(UpdateUI); 
+        _gameOver.ChangeUI.AddListener(UpdateUI); 
     }
 
     private void UpdateUI()

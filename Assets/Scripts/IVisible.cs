@@ -2,5 +2,5 @@ using UnityEngine;
 
 public interface IVisible 
 {
-   public void GoOneOrderHigherInLayer(SpriteRenderer renderer);
+   void GoOneOrderHigherInLayer(SpriteRenderer renderer);
 }

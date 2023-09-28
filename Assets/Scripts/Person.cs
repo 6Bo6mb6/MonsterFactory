@@ -15,14 +15,14 @@ public abstract class Person : MonoBehaviour
 
     public string ClassName { get; private set; }
     
-    public void Awake()
+    private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _hp = GetComponent<Health>();
 
         _hp.PersonDie.AddListener(Die);
 
-        ClassName = GetClassName();
+        ClassName = GetType().Name;
     }
 
     public virtual void Walk(Vector2 direction) 
@@ -37,18 +37,9 @@ public abstract class Person : MonoBehaviour
 
     public Vector2 GetRigidbodyPosition() 
     {
-        Vector2 rbPosition = _rb.position;
-        return rbPosition;
+        return _rb.position;
     }
 
     protected abstract void Die();
-
-    private string GetClassName() 
-    {
-        string className = ToString();
-        className = className.Substring(className.IndexOf("(") + 1);
-        className = className.Remove(className.Length - 1);
-        return className;
-    }
 
 }

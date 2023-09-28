@@ -9,6 +9,7 @@ public class Shotgun : Weapon
     public override void Fire(Vector2 direction, Bullet bulletPrefab , string shooter)
     {
         direction = Quaternion.Euler(0, 0, _rotationAngleStart) * direction;
+
         for (int i = 0; i < _numberOfBullets; i++) 
         { 
             direction = Quaternion.Euler(0, 0, _rotationAngle) * direction;

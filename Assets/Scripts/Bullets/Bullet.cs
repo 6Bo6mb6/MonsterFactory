@@ -10,7 +10,7 @@ public class Bullet  : MonoBehaviour
 
     private Rigidbody2D _rb;
 
-    public string Shooter;
+    public string Shooter { get; set;}
 
     public void MoveBullet(Vector2 direction, float speed)
     {
@@ -43,6 +43,8 @@ public class Bullet  : MonoBehaviour
             Damage(collision);
         }
         else
+        {
             Debug.Log(person);
+        }
     }
 }

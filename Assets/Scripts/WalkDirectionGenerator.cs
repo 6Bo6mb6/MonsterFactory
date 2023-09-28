@@ -8,7 +8,6 @@ public class WalkDirectionGenerator : MonoBehaviour, IMovable
 
     public Vector2 CurrentPoint { get;  private set; }
     
-
     public Vector2 GenerateNewDirection(Vector2 rbPosition)  
     {
         _currentPoint.x = Mathf.Round(Random.Range(-_areaMovement.x, _areaMovement.x)); 

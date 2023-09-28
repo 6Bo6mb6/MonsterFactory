@@ -9,7 +9,7 @@ public class PersonalScreeningScanner : MonoBehaviour
     private Vector2 _cameraArea;
     private float _offset = 0.6f;
 
-    public void Start()
+    private void Start()
     {
         _transform = GetComponent<Transform>();
         SetPositionExit();
