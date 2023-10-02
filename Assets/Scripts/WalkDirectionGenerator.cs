@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WalkDirectionGenerator : MonoBehaviour, IMovable
+public class WalkDirectionGenerator :  IMovable
 {
 
     private Vector2 _areaMovement, _currentPoint;
@@ -8,6 +8,12 @@ public class WalkDirectionGenerator : MonoBehaviour, IMovable
 
     public Vector2 CurrentPoint { get;  private set; }
     
+    private WalkDirectionGenerator() 
+    {
+        _areaMovement.y = Camera.main.orthographicSize;
+        _areaMovement.x = _areaMovement.y * Screen.width / Screen.height;
+    }
+
     public Vector2 GenerateNewDirection(Vector2 rbPosition)  
     {
         _currentPoint.x = Mathf.Round(Random.Range(-_areaMovement.x, _areaMovement.x)); 
@@ -18,9 +24,5 @@ public class WalkDirectionGenerator : MonoBehaviour, IMovable
         return _normalizedDirection;
     }
 
-    private void Awake() 
-    {
-        _areaMovement.y = Camera.main.orthographicSize;
-        _areaMovement.x = _areaMovement.y * Screen.width / Screen.height;
-    }
+    
 }

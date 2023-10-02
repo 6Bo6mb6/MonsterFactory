@@ -790,7 +790,7 @@ MonoBehaviour:
   PersonDie:
     m_PersistentCalls:
       m_Calls: []
-  "\u0421hangeHealth":
+  ChangeHealth:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &310284385
@@ -805,8 +805,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd967fd4543d68b4baf3b3219f3aa540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _money: 0
-  ChangeMoney:
+  _score: 0
+  Change:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &349939084
@@ -2134,7 +2134,6 @@ GameObject:
   - component: {fileID: 1065666882}
   - component: {fileID: 1065666880}
   - component: {fileID: 1065666884}
-  - component: {fileID: 1065666883}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -2275,18 +2274,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1065666883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1065666877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d69dbce17429d544b97d8c79cb65fcf0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1065666884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2304,7 +2291,7 @@ MonoBehaviour:
   PersonDie:
     m_PersistentCalls:
       m_Calls: []
-  "\u0421hangeHealth":
+  ChangeHealth:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &1078562614
@@ -3322,7 +3309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 653a9b76d418941439c19b96e24942cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "\u0421hangeUI":
+  ChangeUI:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &1601724620
@@ -3621,7 +3608,7 @@ MonoBehaviour:
   PersonDie:
     m_PersistentCalls:
       m_Calls: []
-  "\u0421hangeHealth":
+  ChangeHealth:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &1902932689

@@ -11,7 +11,7 @@ public class UIScore : MonoBehaviour
     private void Start()
     {
         _text = GetComponent<Text>();
-        _score.ChangeMoney.AddListener(UpdateUi);
+        _score.Change.AddListener(UpdateUi);
     }
   
     private void UpdateUi( int money)

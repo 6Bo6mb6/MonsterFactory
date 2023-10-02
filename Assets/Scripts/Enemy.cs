@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(WalkDirectionGenerator))]
+
 public class Enemy : Person
 {   
     [SerializeField] private int _price;
@@ -29,7 +29,7 @@ public class Enemy : Person
         _player = FindObjectOfType<Player>();
         _score = _player.GetComponent<Score>();
         _bodyCustomizer = GetComponent<BodyCustomizer>();
-        _generator = GetComponent<WalkDirectionGenerator>();
+        
     }
 
     private void Update()
@@ -45,8 +45,9 @@ public class Enemy : Person
         Walk(_direction);
     }
 
-    public void WakeUp() 
+    public void WakeUp(IMovable generator) 
     {
+        _generator = generator;
         StartCoroutine(FireThroughTime());
         SetNewDirection(_generator.GenerateNewDirection(GetRigidbodyPosition()));
     }
@@ -74,8 +75,9 @@ public class Enemy : Person
 
     private bool ReachedThePoint() 
     {
-        return Mathf.Round(GetRigidbodyPosition().x) == _generator.CurrentPoint.x
+       
+        return Mathf.Round(GetRigidbodyPosition().x) == _generator?.CurrentPoint.x
                 &&
-                Mathf.Round(GetRigidbodyPosition().y) == _generator.CurrentPoint.y;
+                Mathf.Round(GetRigidbodyPosition().y) == _generator?.CurrentPoint.y;
     }
 }

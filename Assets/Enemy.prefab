@@ -340,7 +340,6 @@ GameObject:
   - component: {fileID: 2858459912305833864}
   - component: {fileID: 8543016174704129523}
   - component: {fileID: 2961484720059869128}
-  - component: {fileID: 4390580056704984230}
   - component: {fileID: 7079987390587993604}
   m_Layer: 0
   m_Name: Enemy
@@ -383,7 +382,7 @@ MonoBehaviour:
   PersonDie:
     m_PersistentCalls:
       m_Calls: []
-  "\u0421hangeHealth":
+  ChangeHealth:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &2858459912305833864
@@ -448,18 +447,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &4390580056704984230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3143518918694982606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d69dbce17429d544b97d8c79cb65fcf0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7079987390587993604
 MonoBehaviour:
   m_ObjectHideFlags: 0
