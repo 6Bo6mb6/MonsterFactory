@@ -3,7 +3,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 
-public class Bullet  : MonoBehaviour
+public abstract class Bullet  : MonoBehaviour
 {
     [SerializeField] private float _timeToDestroy = 2f;
     [SerializeField] private float _percentDamage = 30f;
@@ -11,29 +11,16 @@ public class Bullet  : MonoBehaviour
     private Rigidbody2D _rb;
 
     public string Shooter { get; set;}
-
-    public void MoveBullet(Vector2 direction, float speed)
-    {
-        _rb = GetComponent<Rigidbody2D>();
-        _rb.AddForce(direction * speed, ForceMode2D.Impulse);
-    }
-
-    private void Damage(Collider2D collision)
-    {
-        Health hp = collision.GetComponent<Health>();
-        hp.Damage(_percentDamage);
-        Destroy(gameObject);
-    }
-
+    
     private void Start()
     {
         StartCoroutine(DestroyThroughTime());
     }
 
-    private IEnumerator DestroyThroughTime()
+    public void MoveBullet(Vector2 direction, float speed)
     {
-        yield return new WaitForSeconds(_timeToDestroy);
-        Destroy(gameObject);
+        _rb = GetComponent<Rigidbody2D>();
+        _rb.AddForce(direction * speed, ForceMode2D.Impulse);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -47,4 +34,18 @@ public class Bullet  : MonoBehaviour
             Debug.Log(person);
         }
     }
+
+    private void Damage(Collider2D collision)
+    {
+        Health hp = collision.GetComponent<Health>();
+        hp.Damage(_percentDamage);
+        Destroy(gameObject);
+    }
+
+    private IEnumerator DestroyThroughTime()
+    {
+        yield return new WaitForSeconds(_timeToDestroy);
+        Destroy(gameObject);
+    }
+
 }

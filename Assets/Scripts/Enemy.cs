@@ -14,16 +14,7 @@ public class Enemy : Person
     private Vector2 _bulletDirection;
 
 
-    protected override void Die()
-    {
-        if (_bodyCustomizer.IsDefect)
-            _score.Add(_price);
-        else
-            _score.Subtract(_price);
-
-        gameObject.SetActive(false);
-    }
-
+    
     private void Start()
     {
         _player = FindObjectOfType<Player>();
@@ -57,6 +48,16 @@ public class Enemy : Person
         StopCoroutine(FireThroughTime());
         SetNewDirection(Vector2.zero);
     }
+
+    protected override void Die()
+        {
+            if (_bodyCustomizer.IsDefect)
+                _score.Add(_price);
+            else
+                _score.Subtract(_price);
+
+            gameObject.SetActive(false);
+        }
 
     private void SetNewDirection(Vector2 direction)
     {
